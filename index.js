@@ -11,6 +11,10 @@ app.set('view engine', 'handlebars');
 
 app.get('/', (req, res) => res.render('home'));
 
+var fortune=require('./lib/fortune.js');
+
+app.get('/about', (req, res) => res.render('about', {fortune: fortune.getFortune()}));
+
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
 
