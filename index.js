@@ -14,6 +14,9 @@ app.get('/', (req, res) => res.render('home'));
 var fortune=require('./lib/fortune.js'); //Tambien puede ser solo con fortune
 app.get('/about', (req, res) => res.render('about', {fortune: fortune.getFortune()}));
 
+//Libreria estatica
+app.use(express.static(path.join(__dirname, '/public')));
+
 app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
 
